@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioComunique" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="226"/>
+	<parameter name="IDF" class="java.lang.String"/>
+	<parameter name="ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT fiscal.nome, fiscal.cargo, fiscal.formacao, processo.requerente,processo.logradouro_coresp,processo.cep_coresp, processo.bairro_coresp, processo.quadra, processo.numprocesso, processo.anoprocesso, processo.assunto, processo.comunique, processo.cidade_coresp, processo.estado_coresp, processo.n_coresp FROM processo INNER JOIN fiscal ON fiscal.id = $P{IDF} WHERE codprocesso = $P{ID}]]>
+	</queryString>
+	<field name="nome" class="java.lang.String"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="formacao" class="java.lang.String"/>
+	<field name="requerente" class="java.lang.String"/>
+	<field name="logradouro_coresp" class="java.lang.String"/>
+	<field name="cep_coresp" class="java.lang.String"/>
+	<field name="bairro_coresp" class="java.lang.String"/>
+	<field name="quadra" class="java.lang.String"/>
+	<field name="numprocesso" class="java.lang.Integer"/>
+	<field name="anoprocesso" class="java.lang.String"/>
+	<field name="assunto" class="java.lang.String"/>
+	<field name="comunique" class="java.lang.String"/>
+	<field name="cidade_coresp" class="java.lang.String"/>
+	<field name="estado_coresp" class="java.lang.String"/>
+	<field name="n_coresp" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="111" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="80" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[COMUNIQUE-SE]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="0" width="93" height="82"/>
+				<imageExpression><![CDATA["brasao.gif"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="103" y="58" width="365" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="103" y="58" width="365" height="20" backcolor="#999999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Secretaria Municipal de Urbanismo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prefeitura Municipal da Estância Balneária de Caraguatatuba]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado de São Paulo]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="338" y="1" width="74" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Caraguatatuba,]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy" isBlankWhenNull="true">
+				<reportElement x="412" y="1" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="519" splitType="Stretch">
+			<rectangle>
+				<reportElement x="38" y="191" width="492" height="66"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="38" y="15" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[IImo. (a) Sr. (a)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="38" y="37" width="517" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{requerente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="38" y="144" width="300" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Comunicamos à V.Sª., através do Processo Administrativo nº.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="338" y="144" width="63" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numprocesso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="401" y="144" width="11" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="412" y="144" width="56" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anoprocesso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="468" y="144" width="62" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[, referente à]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="38" y="164" width="300" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{assunto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="338" y="164" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[que:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="43" y="196" width="481" height="56"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comunique}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="269" width="490" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Em caso  de dúvidas, entrar em contato pelo telefone (12) 3886-6060.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="298" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Atenciosamente,]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="38" y="117" width="518" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cep_coresp}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="459" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="499" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="479" width="557" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{formacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="298" y="57" width="14" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[,]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="312" y="57" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{n_coresp}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="38" y="97" width="236" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cidade_coresp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="274" y="97" width="24" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="298" y="97" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estado_coresp}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="38" y="57" width="236" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{logradouro_coresp}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="38" y="77" width="360" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bairro_coresp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="0" width="553" height="20" forecolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[AV.BRASIL, Nº 749 - BAIRRO SUMARÉ - CEP: 11661-200 - TEL. (12) 3886-6060]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="20" width="514" height="20" forecolor="#666666"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Dengue pode matar. Para evitar, elimine os criadouros.]]></text>
+			</staticText>
+			<image>
+				<reportElement x="516" y="0" width="40" height="40"/>
+				<imageExpression><![CDATA["imagem.bmp"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

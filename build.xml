@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Documentação (omitida) -->
+<project name="TrDoc" default="default" basedir=".">
+    <description>Builds, tests, and runs the project TutorialRelatorios.</description>
+    <import file="nbproject/build-impl.xml"/>
+    <!--
+
+        Documentação (omitida)
+
+    -->
+
+    <!-- configurando o target -post-compile, que é executado depois
+         da compilação dos arquivos .java do projeto-->
+   
+
+</project>

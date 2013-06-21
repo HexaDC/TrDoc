@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioAlvara" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="77"/>
+	<parameter name="ID1" class="java.lang.String"/>
+	<parameter name="ID2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT *,
+if(substring(dataentrada,-2) < 12,
+    if(substring(dataentrada,-7,2) < 12,
+        if(substring(dataentrada,-10,2) < 30,
+            '(Lei Nº200/92).',
+        '(Lei Complementar Nº42/11).'),
+    '(Lei Complementar Nº42/11).'),
+'(Lei Complementar Nº42/11).') as Lei_Comp
+FROM processo
+inner join assinatura
+on assinatura.id = $P{ID2}
+WHERE codprocesso = $P{ID1};]]>
+	</queryString>
+	<field name="codprocesso" class="java.lang.Integer"/>
+	<field name="flag_emissao" class="java.lang.String"/>
+	<field name="numprocesso" class="java.lang.Integer"/>
+	<field name="anoprocesso" class="java.lang.String"/>
+	<field name="dataentrada" class="java.lang.String"/>
+	<field name="requerente" class="java.lang.String"/>
+	<field name="assunto" class="java.lang.String"/>
+	<field name="endereco" class="java.lang.String"/>
+	<field name="loteamento" class="java.lang.String"/>
+	<field name="bairro" class="java.lang.String"/>
+	<field name="lote" class="java.lang.String"/>
+	<field name="quadra" class="java.lang.String"/>
+	<field name="cep" class="java.lang.String"/>
+	<field name="identificacaocadastral" class="java.lang.String"/>
+	<field name="responsaveltecnico" class="java.lang.String"/>
+	<field name="formacaoresptecnico" class="java.lang.String"/>
+	<field name="creaspresptecnico" class="java.lang.String"/>
+	<field name="artresptecnico" class="java.lang.String"/>
+	<field name="inscrmunicipalresptecnico" class="java.lang.String"/>
+	<field name="tipodeconstrucao" class="java.lang.String"/>
+	<field name="area_alvconstrucao" class="java.lang.String"/>
+	<field name="complementoconstrucao" class="java.lang.String"/>
+	<field name="numalvaraconstrucao" class="java.lang.String"/>
+	<field name="anoalvaraconstrucao" class="java.lang.String"/>
+	<field name="data_alvconstrucao" class="java.lang.String"/>
+	<field name="autordoprojeto" class="java.lang.String"/>
+	<field name="formacaoautorprojeto" class="java.lang.String"/>
+	<field name="creaspautorprojeto" class="java.lang.String"/>
+	<field name="artautorprojeto" class="java.lang.String"/>
+	<field name="inscrmunicipalautorprojeto" class="java.lang.String"/>
+	<field name="area_alvprojeto" class="java.lang.String"/>
+	<field name="complementoprojeto" class="java.lang.String"/>
+	<field name="numalvaraprojeto" class="java.lang.String"/>
+	<field name="data_alvproj" class="java.lang.String"/>
+	<field name="complementohabite" class="java.lang.String"/>
+	<field name="construHabite" class="java.lang.String"/>
+	<field name="numhabhabite" class="java.lang.String"/>
+	<field name="anohabite" class="java.lang.String"/>
+	<field name="numprocaprovacaohabite" class="java.lang.String"/>
+	<field name="dataexpedicaohabite" class="java.lang.String"/>
+	<field name="areahabite" class="java.lang.String"/>
+	<field name="observacaohabite" class="java.lang.String"/>
+	<field name="logradouro_coresp" class="java.lang.String"/>
+	<field name="n_coresp" class="java.lang.String"/>
+	<field name="bairro_coresp" class="java.lang.String"/>
+	<field name="cep_coresp" class="java.lang.String"/>
+	<field name="cidade_coresp" class="java.lang.String"/>
+	<field name="estado_coresp" class="java.lang.String"/>
+	<field name="data_coresp" class="java.lang.String"/>
+	<field name="comunique" class="java.lang.String"/>
+	<field name="situacao_alv" class="java.lang.String"/>
+	<field name="area_aprovHabite" class="java.lang.String"/>
+	<field name="finalidadeHabite" class="java.lang.String"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="registro" class="java.lang.String"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="Lei_Comp" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prefeitura Municipal da Estância Balneária de Caraguatatuba]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado de São Paulo]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="103" y="58" width="365" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="103" y="58" width="365" height="20" backcolor="#999999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Secretaria Municipal de Urbanismo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="80" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Relação de Andamentos]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="0" width="93" height="82"/>
+				<imageExpression><![CDATA["brasao.gif"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="29" splitType="Stretch">
+			<rectangle>
+				<reportElement x="150" y="5" width="247" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="163" y="5" width="80" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº do Processo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="315" y="5" width="12" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="256" y="5" width="59" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numprocesso}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="327" y="5" width="70" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anoprocesso}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="142" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nome do Requerente:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="103" y="20" width="434" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="20" width="41" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Assunto:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="40" width="51" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Endereço:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="60" width="61" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Loteamento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="327" y="40" width="34" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Bairro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="60" width="27" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Lote:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="60" width="45" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Quadra:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="44" y="39" width="493" height="1"/>
+			</line>
+			<line>
+				<reportElement x="54" y="59" width="261" height="1"/>
+			</line>
+			<line>
+				<reportElement x="361" y="58" width="176" height="1"/>
+			</line>
+			<line>
+				<reportElement x="64" y="79" width="215" height="1"/>
+			</line>
+			<line>
+				<reportElement x="440" y="78" width="97" height="1"/>
+			</line>
+			<line>
+				<reportElement x="337" y="80" width="60" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="81" width="77" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Data de Entrada:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="80" y="99" width="133" height="2"/>
+			</line>
+		</band>
+		<band height="432"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="469" y="0" width="68" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="537" y="0" width="17" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy" isBlankWhenNull="true">
+				<reportElement x="80" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{data_alvconstrucao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="0" width="76" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Caraguatatuba,]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

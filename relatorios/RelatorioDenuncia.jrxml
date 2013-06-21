@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioDenuncia" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT  vistoria.dt_denuncia, vistoria.num_denuncia, vistoria.atendente, vistoria.fiscal, vistoria.atendimento, vistoria.assunto, vistoria.detalhes, vistoria.providencias, vistoria.dt_retorno, denunciante.nome, denunciante.endereco, denunciante.complemento, denunciante.bairro, denunciante.num, denunciante.quadra, denunciante.lote, denunciante.insc_municipal, denunciante.telefone, denunciado.nome_denunciado, denunciado.endereco_denunciado, denunciado.bairro_denunciado, denunciado.num_denunciado, denunciado.quadra_denunciado, denunciado.lote_denunciado, denunciado.insc_municipal_denunciado, denunciado.referencia, denunciado.descricao FROM vistoria INNER JOIN denunciante ON denunciante.vistoria_id = vistoria.id INNER JOIN denunciado ON denunciado.vistoria_id = vistoria.id WHERE vistoria.id = $P{ID}]]>
+	</queryString>
+	<field name="dt_denuncia" class="java.lang.String"/>
+	<field name="num_denuncia" class="java.lang.String"/>
+	<field name="atendente" class="java.lang.String"/>
+	<field name="fiscal" class="java.lang.String"/>
+	<field name="atendimento" class="java.lang.String"/>
+	<field name="assunto" class="java.lang.String"/>
+	<field name="detalhes" class="java.lang.String"/>
+	<field name="providencias" class="java.lang.String"/>
+	<field name="dt_retorno" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="endereco" class="java.lang.String"/>
+	<field name="complemento" class="java.lang.String"/>
+	<field name="bairro" class="java.lang.String"/>
+	<field name="num" class="java.lang.String"/>
+	<field name="quadra" class="java.lang.String"/>
+	<field name="lote" class="java.lang.String"/>
+	<field name="insc_municipal" class="java.lang.String"/>
+	<field name="telefone" class="java.lang.String"/>
+	<field name="nome_denunciado" class="java.lang.String"/>
+	<field name="endereco_denunciado" class="java.lang.String"/>
+	<field name="bairro_denunciado" class="java.lang.String"/>
+	<field name="num_denunciado" class="java.lang.String"/>
+	<field name="quadra_denunciado" class="java.lang.String"/>
+	<field name="lote_denunciado" class="java.lang.String"/>
+	<field name="insc_municipal_denunciado" class="java.lang.String"/>
+	<field name="referencia" class="java.lang.String"/>
+	<field name="descricao" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado de São Paulo]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="103" y="58" width="365" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<image>
+				<reportElement x="10" y="0" width="93" height="82"/>
+				<imageExpression><![CDATA["brasao.gif"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prefeitura Municipal da Estância Balneária de Caraguatatuba]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="103" y="58" width="365" height="20" backcolor="#999999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Secretaria Municipal de Urbanismo]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PROTOCOLO DE DENÚNCIA]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="275" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" x="284" y="228" width="271" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Quadra:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="114" y="51" width="441" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{atendente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="125" width="555" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Informações do Denunciante]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="114" y="31" width="441" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fiscal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="188" width="409" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Logradouro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Data da Denúncia:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="101" y="168" width="111" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{insc_municipal}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="101" y="148" width="454" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="468" y="188" width="87" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nº:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="359" y="0" width="165" height="19"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="168" width="540" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Inscr. Municipal:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="101" y="188" width="323" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{endereco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="228" width="269" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Lote:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="208" width="234" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Bairro:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="101" y="228" width="183" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{lote}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="248" width="269" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Telefone:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="114" y="91" width="441" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{assunto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="148" width="540" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Denunciante:]]></text>
+			</staticText>
+			<elementGroup/>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="101" y="248" width="183" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="324" y="228" width="231" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quadra}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="112" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dt_denuncia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="358" y="0" width="66" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº Denúncia:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="424" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{num_denuncia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="488" y="188" width="67" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{num}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="71" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Atendimento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="51" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Atendente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="31" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Fiscal:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="101" y="208" width="148" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{bairro}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="114" y="71" width="441" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{atendimento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="91" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Assunto:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="263" y="208" width="292" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Complemento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="340" y="208" width="215" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{complemento}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="163">
+			<staticText>
+				<reportElement positionType="Float" x="14" y="28" width="541" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Denunciado:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="108" width="269" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Lote:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="68" width="453" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Logradouro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="0" width="520" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Informações do Denunciado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="48" width="248" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Inscr. Municipal:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="468" y="68" width="87" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nº:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="284" y="108" width="271" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Quadra:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="88" width="540" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Bairro:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="101" y="28" width="454" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nome_denunciado}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="101" y="68" width="367" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{endereco_denunciado}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="101" y="88" width="454" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{bairro_denunciado}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="488" y="68" width="67" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{num_denunciado}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="101" y="108" width="183" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{lote_denunciado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="324" y="108" width="231" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quadra_denunciado}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="101" y="48" width="162" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{insc_municipal_denunciado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="128" width="520" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Ponto de Referência:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="148" y="128" width="386" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{referencia}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30">
+			<staticText>
+				<reportElement positionType="Float" x="15" y="0" width="133" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Descrição  da Ocorrência:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="148" y="0" width="386" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="28">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="148" y="0" width="386" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{providencias}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="0" width="133" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Providências - FISCAL:]]></text>
+			</staticText>
+		</band>
+		<band height="27">
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="15" y="0" width="86" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Data de Retorno:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" x="101" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dt_retorno}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="435" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="0" width="40" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

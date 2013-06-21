@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioHabite" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="63cfa92d-a87d-41c8-944e-aa9dcf4c40ea">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="277"/>
+	<parameter name="ID" class="java.lang.String"/>
+	<parameter name="IDF" class="java.lang.String"/>
+	<parameter name="DTR" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT requerente, assunto, endereco, bairro, lote, loteamento, quadra,numalvaraconstrucao,anoalvaraconstrucao, identificacaocadastral, numprocesso, anoprocesso, numhabhabite,anohabite, numprocaprovacaohabite, data_alvconstrucao, areahabite, observacaohabite, dataexpedicaohabite, area_aprovHabite, finalidadeHabite, f.nome, f.cargo, f.formacao FROM processo, fiscal AS f WHERE codprocesso = $P{ID} AND f.id = $P{IDF}]]>
+	</queryString>
+	<field name="requerente" class="java.lang.String"/>
+	<field name="assunto" class="java.lang.String"/>
+	<field name="endereco" class="java.lang.String"/>
+	<field name="bairro" class="java.lang.String"/>
+	<field name="lote" class="java.lang.String"/>
+	<field name="loteamento" class="java.lang.String"/>
+	<field name="quadra" class="java.lang.String"/>
+	<field name="numalvaraconstrucao" class="java.lang.String"/>
+	<field name="anoalvaraconstrucao" class="java.lang.String"/>
+	<field name="identificacaocadastral" class="java.lang.String"/>
+	<field name="numprocesso" class="java.lang.Integer"/>
+	<field name="anoprocesso" class="java.lang.String"/>
+	<field name="numhabhabite" class="java.lang.String"/>
+	<field name="anohabite" class="java.lang.String"/>
+	<field name="numprocaprovacaohabite" class="java.lang.String"/>
+	<field name="data_alvconstrucao" class="java.lang.String"/>
+	<field name="areahabite" class="java.lang.String"/>
+	<field name="observacaohabite" class="java.lang.String"/>
+	<field name="dataexpedicaohabite" class="java.lang.String"/>
+	<field name="area_aprovHabite" class="java.lang.String"/>
+	<field name="finalidadeHabite" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="formacao" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="98" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="d73859f5-33bb-4ccf-b0de-ada0e50ff2d6" x="103" y="58" width="365" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="9f4987b5-14ae-423b-9c90-ffdc288ad477" x="103" y="58" width="365" height="20" backcolor="#999999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Secretaria Municipal de Urbanismo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4981d10e-b6d5-4300-bf99-3bd052a0b031" x="0" y="20" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado de São Paulo]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="adbcaebe-45cb-48a4-8d04-59014cd0c725" x="10" y="0" width="93" height="82"/>
+				<imageExpression><![CDATA["brasao.gif"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="36aa7ca0-82ef-41a0-9516-0a98975410d0" x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prefeitura Municipal da Estância Balneária de Caraguatatuba]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a001436b-3d5e-4052-9f92-7f305c6ebdfe" x="0" y="78" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[HABITE-SE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="284" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="097bcc59-cdf6-4c6d-ba56-76a3c6d04af2" x="33" y="16" width="85" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº. Processo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5722f96c-2f13-4758-94ef-8e3ad6a310db" x="33" y="36" width="85" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº. Habite-se:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="56c4921d-ac64-4a14-8946-7af27917205f" x="33" y="56" width="85" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ident. Cadastral:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="81f8db00-6ff8-4115-9df2-3070d888ef81" x="33" y="77" width="85" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Para fins:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7d4842e1-63a2-4708-a90f-7d3c82d71a05" x="277" y="16" width="132" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Proc. de Aprovação nº:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4a57185d-1dab-4dfb-b92c-8720ab79891c" x="277" y="37" width="132" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Alvará Construção nº:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eecb69a7-0d34-45bd-a8b9-c9cf30a8e539" x="277" y="58" width="132" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data da Aprovação:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="a4ec95e9-f2c5-4c79-be7d-bd79617ac6c2" x="118" y="35" width="146" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="bc20539d-eac9-4028-a194-a629b656fcdb" x="118" y="54" width="146" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="6fb25a68-1f7e-4dec-9806-fb13878ea500" x="118" y="75" width="146" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="a3d6d1d0-bc81-42a5-b495-74c39b9ddddd" x="409" y="34" width="118" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="603cba89-9aaa-459b-8532-d228865a6146" x="409" y="54" width="118" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="f3aa0dc9-4a14-47b3-b66b-b0303773b12c" x="409" y="76" width="118" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="042d60ec-6ebd-4b3e-aaa1-189a693d4f88" x="33" y="114" width="515" height="22"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Por este documento, após vistoria efetuada pela Secretaria de Urbanismo, e ouvidos os orgãos competentes,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2962546d-dab6-4df8-8005-7d17daf700a8" x="21" y="136" width="527" height="20"/>
+				<textElement verticalAlignment="Middle" markup="html"/>
+				<text><![CDATA[fica concedida, de acordo com a <b>Lei Municipal nº 969/75</b>, licença para ser habitado o prédio de propriedade de:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3d1ec4ac-afc9-45a1-bf01-5caa9aca89a5" x="24" y="156" width="524" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{requerente}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="6237248b-c59d-42a9-b87a-a7af961dc09f" x="24" y="175" width="524" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="8b6197c6-9a98-4e39-887b-af1dbeb9d527" x="24" y="180" width="61" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Endereço:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7beffa35-4839-413a-8bab-e2623e7af150" x="24" y="200" width="61" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Loteamento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="05049c04-109e-4e30-8e6c-c83f9f810274" x="24" y="220" width="61" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bairro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f8eb4c84-a370-4563-85d5-3f824cf3aba2" x="24" y="240" width="61" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lote:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ce69b2e0-cbfe-4e49-8664-0920eda72e1a" x="280" y="242" width="39" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quadra:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1bd9d8ad-bdc7-42f9-aafe-60dee75e5810" x="24" y="261" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Área APROVAÇÃO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a2c0665c-7eea-42dc-b2f1-c7bce79cc6e9" x="280" y="260" width="92" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Área HABITE-SE:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="4b205f71-451c-4b9a-9481-26322c4425d9" x="85" y="199" width="463" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="e3aee2c0-45c5-4ccd-b3f0-2d35ceb76d00" x="85" y="218" width="463" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="2df2ca62-2cd3-45a8-a4cd-901e935d0b7e" x="85" y="239" width="463" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="25cb1994-c614-466d-9fa8-2af42eea01ed" x="85" y="260" width="195" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="12b8359f-90b3-4333-a380-758294906668" x="319" y="260" width="229" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="1b236f1c-828d-4dc1-a977-3c533463f7aa" x="124" y="279" width="156" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="8ad0293e-5486-49d8-9e64-40431ee888d0" x="371" y="278" width="177" height="1"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="4866703c-406b-449e-871a-3980dad34a51" x="118" y="17" width="146" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numprocesso}+"/"+$F{anoprocesso}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a2cfa20b-7ce2-4a78-b23d-7301918b1553" x="119" y="37" width="145" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numhabhabite}+"/"+$F{anohabite}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="fbdeba6c-cab0-453e-a000-465c80b59eae" x="119" y="57" width="145" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{identificacaocadastral}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="23a194ab-f5ce-4bc8-8537-17b59b45cf6d" x="119" y="78" width="408" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{finalidadeHabite}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="e52a4c7c-a9b5-4b76-8f7a-05337fc49788" x="409" y="17" width="118" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numprocaprovacaohabite}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="431aa402-3d2e-4da8-b8ba-8a691cb51283" x="409" y="35" width="118" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numalvaraconstrucao}+"/"+$F{anoalvaraconstrucao}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f5b5c1b0-1902-42ed-950b-8c1658ffe5d3" x="85" y="178" width="463" height="20"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{endereco}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="e36962e6-7e9c-471c-b983-c90eab33b08c" x="85" y="198" width="463" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{loteamento}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="1736860a-92ba-4690-9326-13c4bcef3b15" x="85" y="219" width="463" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{bairro}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="fbd4a26a-5b6a-4b75-b43f-0a242d82dc86" x="88" y="240" width="192" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{lote}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="4b6a29d2-662e-46f8-aa5f-1c6c56b722ca" x="319" y="240" width="229" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quadra}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="5ec63380-eea0-4fb4-a15f-52b71a727db4" x="124" y="259" width="129" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{area_aprovHabite}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement uuid="35d991c6-61bd-4f9d-8129-cb2e2eb37df3" x="371" y="262" width="139" height="17"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{areahabite}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6a348d29-fff4-4425-8705-618fb2099276" x="253" y="262" width="20" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[m²]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9fdebf43-8fb3-4de6-9935-9050cce9177f" x="510" y="263" width="20" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[m²]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="91d55e09-b5e2-4d5e-9f43-10afcda06880" x="409" y="56" width="118" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data_alvconstrucao}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="26">
+			<staticText>
+				<reportElement uuid="7c6f697e-9b69-4085-8bbe-f4d0347a3962" x="21" y="6" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Observação:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="0d871cec-08ba-4704-8af1-949ae4bb2f54" stretchType="RelativeToBandHeight" x="121" y="6" width="424" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false" isUnderline="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{observacaohabite}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="82">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3c280c19-7d0f-4694-94d2-684c64112f55" x="21" y="22" width="524" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="72995300-ea4d-4c4d-8f3c-385b929e9885" x="21" y="42" width="524" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{formacao}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="d9a2d211-823d-4c70-b1ff-bb5a38d05993" x="21" y="62" width="524" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="4c37f5b7-3cd0-419f-a764-e5919d7f49b7" x="394" y="2" width="74" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Caraguatatuba,]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement uuid="747f4513-b35b-41e9-9659-1dd0d15a997f" x="470" y="2" width="75" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{DTR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="193" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="666b97f5-2890-4f53-8106-6ebd08dae532" x="33" y="29" width="392" height="20"/>
+				<textElement verticalAlignment="Middle" markup="html"/>
+				<text><![CDATA[Declaro que recebi nesta data a <b>3ª Via</b> deste documento de Habite-se para fins]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a831f103-c9ca-4491-8fa2-27d5a8d055ef" x="425" y="29" width="120" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{finalidadeHabite}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ccd478d9-1ce2-4aeb-b652-c8e16aee6aa4" x="21" y="49" width="72" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[expedido em]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="bd005dec-ea55-4535-b18f-733bcdd0287d" x="93" y="49" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataexpedicaohabite}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="17ae03fa-53eb-425d-976c-90f2f551c2cc" x="193" y="49" width="164" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[ destinado ao prédio localizado à]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="72674454-8ab4-48cc-9e92-bb8670bfe70e" x="357" y="49" width="188" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{endereco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0e7b761c-e742-4b1c-91b0-efc0cdd7fb24" x="21" y="70" width="72" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Loteamento:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="634d5c03-8b17-4717-9eba-7e851524d417" x="92" y="91" width="158" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="44d87d5d-d189-4b61-b1c1-4df8b171209d" x="21" y="91" width="72" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lote:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="b6d9770e-0494-4ec6-b715-ba1fb2af5cd3" x="92" y="110" width="158" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="944be895-0d5a-462f-a57b-29a9f47b7bff" x="277" y="72" width="39" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bairro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a20c29fb-2eb1-44b1-a8f7-e5c24caa2eab" x="277" y="94" width="39" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quadra:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="be44a047-9078-4f54-9fae-95eececd26aa" x="316" y="91" width="158" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="f790864e-d7be-4fdc-a9a1-8f433c93cde3" x="315" y="111" width="158" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="2e973516-8bf9-4430-8d77-369b1828a95c" x="397" y="127" width="77" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Caraguatatuba,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7d0b260d-92e8-4906-8aab-3d5537fca6b2" x="0" y="172" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Proprietário ou Responsável]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8b3670aa-451c-4b5a-afaf-050b1769a0c2" x="162" y="172" width="246" height="1"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="33ae8187-91a6-4af2-96e7-77942fd0a4ac" x="93" y="71" width="157" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loteamento}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="dd166388-83b5-4dac-b8b9-0da33dc54d65" x="93" y="90" width="157" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lote}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a9e1a045-4378-44d9-bce1-67658c27e55e" x="316" y="71" width="158" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bairro}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="9fcb547f-83c5-4a9c-8c6e-ae43606d42e4" x="315" y="91" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quadra}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="7a3f4754-b6e0-4a05-8ca2-25272ebf9905" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f9e4f552-c960-41b5-8a81-3c69da619f07" x="473" y="127" width="72" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{DTR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
